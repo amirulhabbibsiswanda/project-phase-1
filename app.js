@@ -22,7 +22,7 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
 
 app.listen(port, () => {
-    console.log('tahu bulat 1 biji', port);
+    console.log('running into port', port);
 
 })
 
