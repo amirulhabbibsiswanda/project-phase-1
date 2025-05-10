@@ -1,0 +1,35 @@
+[
+    {
+      "name": "Programming",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/2721/2721290.png"
+    },
+    {
+      "name": "Mathematics",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/1828/1828778.png"
+    },
+    {
+      "name": "Physics",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/2907/2907192.png"
+    },
+    {
+      "name": "Cooking",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/1046/1046757.png"
+    },
+    {
+      "name": "Graphic Design",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png"
+    },
+    {
+      "name": "Foreign Languages",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/3759/3759513.png"
+    },
+    {
+      "name": "Business & Finance",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/2331/2331966.png"
+    },
+    {
+      "name": "Music",
+      "urlImage": "https://cdn-icons-png.flaticon.com/512/727/727245.png"
+    }
+  ]
+  

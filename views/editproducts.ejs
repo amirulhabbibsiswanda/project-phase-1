@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Products</title>
+</head>
+<body>
+    <%- include('_navbar') %>
+    <% if (error.length > 0) { %>
+     <% error.forEach(error => { %>
+      <li style="color: red;"><%= error %></li>
+     <% }) %>
+    <% } %>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Edit Products</h2>
+        <form action="/products/<%= id%>/edit" method="post">
+            <% data.forEach(el => { %>
+             
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nama</label>
+                    <input type="text" class="form-control" id="name" name="title" value="<%= el.title %>">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Price</label>
+                <input type="number" class="form-control" id="name" name="price" value="<%= el.price %>">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Url</label>
+                <input type="text" class="form-control" id="name" name="url" value="<%= el.url %>">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+                <textarea class="form-control" id="description" name="description" rows="3" ><%= el.description %></textarea>
+            </div>
+            <% }) %>
+            <div class="mb-3">
+                <label for="type" class="form-label">Category</label>
+                <select class="form-control" id="type" name="CategoryId">
+                    
+                    <% datacategories.forEach(el => { %>
+                     
+                        <option value="<%= el.id %>" <%=el.id === data[0].dataValues.CategoryId ? 'selected' : '' %>><%= el.name %></option>
+                        <% }) %>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
+    </div>
+<%- include('_bootstrap') %>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <%- include('_navbar') %>
+  <div class="container mt-4">
+    <div class="d-flex justify-content-center mb-4">
+      <form action="/products" method="GET" class="d-flex" style="max-width: 400px; width: 100%;">
+        <input 
+          type="text" 
+          name="search" 
+          class="form-control me-2" 
+          placeholder="Search products..." 
+          aria-label="Search"
+        >
+        <input type="submit" class=" btn btn-outline-primary" value="Search">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="container mt-4">
+    <div class="row">
+        <% data.forEach(el => { %>
+            <div class="col-md-4 mb-4">
+                
+                    <div class="video-wrapper position-relative">
+        <div class="ratio ratio-16x9">
+            <iframe 
+            src="<%= el.url.replace('watch?v=', 'embed/') %>" 
+            title="<%= el.title %>" 
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title"><%= el.title %></h5>
+        <p class="card-text"><%= el.description %></p>
+        <p class="card-text"><strong><%= formatRupiah(el.price) %></strong></p>
+        <a href="<%= el.url %>" target="_blank" class="btn btn-primary">Tonton di YouTube</a>
+        <a href="/products/<%= el.id %>/edit" class="btn btn-primary">Edit</a>
+        <a href="/users/userproducts/<%= el.id %>/add" class="btn btn-primary" target="_blank">Add to Cart</a>
+
+
+    </div>
+</div>
+</div>
+<% }) %>
+</div>
+</div>
+  <%- include('_bootstrap') %>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Pengguna</title>
+</head>
+<body>
+  <%- include('_navbar') %>
+
+  <div class="container mt-4">
+    <h2>Data Pengguna</h2>
+
+    <% if (data) { %>
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><%= data.name %></td>
+            <td><%= data.age %></td>
+            <td><%= data.address %></td>
+        </tr>
+    </tbody>
+</table>
+<% } else { %>
+    <div class="alert alert-warning mt-3">
+        Data pengguna tidak tersedia.
+        <a href="/profile/<%= userId %>/add" class="btn btn-primary">Add Profile</a>
+      </div>
+    <% } %>
+  </div>
+  <%- include('_bootstrap') %>
+</body>
+</html>

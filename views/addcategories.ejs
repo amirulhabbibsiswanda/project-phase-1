@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Category</title>
+</head>
+<body>
+    <%- include('_navbar') %>
+
+  <div class="container mt-5">
+    <h2>Add New Category</h2>
+
+    <form action="/categories/add" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Category Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="e.g. Programming"
+        >
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Url Image</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="urlImage"
+          placeholder="https://cdn-icons-png.flaticon.com/512/2721/2721290.png"
+        >
+      </div>
+
+      <button type="submit" class="btn btn-success">Add Category</button>
+    </form>
+  </div>
+
+  <%- include('_bootstrap') %>
+</body>
+</html>

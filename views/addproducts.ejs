@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Products</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tambah Data</title>
+</head>
+<body>
+    <%- include('_navbar') %>
+    <% if (error.length > 0) { %>
+     <% error.forEach(error => { %>
+      <li style="color: red;"><%= error %></li>
+     <% }) %>
+    <% } %>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4" >Add Product</h2>
+        <form action="/products/add" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="name" name="title" placeholder=" e.g. Burhan">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Price</label>
+                <input type="number" class="form-control" id="name" name="price" placeholder="e.g. 50000">
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Url</label>
+                <input type="text" class="form-control" id="name" name="url" placeholder="e.g. https://www.hacktiv8.com">
+            </div>
+            <div class="mb-3">
+                <label for="type" class="form-label">Category</label>
+                <select class="form-control" id="type" name="CategoryId">
+                    <% data.forEach(el => { %>
+                     
+                        <option value="<%= el.id %>"><%= el.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Deskripsi</label>
+    
+    <textarea class="form-control" id="description" name="description" rows="3" placeholder="e.g. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt aut eveniet vel quasi impedit culpa nam aliquid quos recusandae autem accusamus quas qui, cupiditate fugit atque modi? Dolorem, nam enim!"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">ADD</button>
+        </form>
+    </div>
+<%- include('_bootstrap') %>
+</body>
+</html>
+</body>
+</html>

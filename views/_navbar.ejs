@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-dark shadow" style="background: linear-gradient(to right, #3f51b5, #1a237e);">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="/">🎓 Ruang Belajar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Left Menu -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products">Products</a>
+        </li>
+        <% if (role === "admin") { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/add">Add Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/products/add">Add Products</a>
+          </li>
+        <% } %>
+      </ul>
+
+      <!-- Right Menu -->
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if (username !== undefined) { %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-person-circle"></i> <%= username %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="/profile/<%= userId %>">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/users/cart/<%= userId %>">Cart</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="/users/logout">Logout</a></li>
+            </ul>
+          </li>
+        <% } else { %>
+          <li class="nav-item me-2">
+            <a href="/users/login" class="btn btn-outline-light">Login</a>
+          </li>
+          <li class="nav-item">
+            <a href="/users/register" class="btn btn-light text-dark">Register</a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<%- include('_navbar') %>
+<div>
+    <table class="table">
+        <tr>
+            <th>No</th>
+            <th>Nama Course</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        <% data.forEach((el,i) => { %>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><%= el.title %></td>
+                <td><%= el.description %></td>
+                <td><%= el.Category.name %></td>
+                <td><%= formatRupiah(el.price) %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <% data.forEach(el => { %>
+                <div class="col-md-4 mb-4">
+                    
+                        <div class="video-wrapper position-relative">
+            <div class="ratio ratio-16x9">
+                <iframe 
+                src="<%= el.url.replace('watch?v=', 'embed/') %>" 
+                title="<%= el.title %>" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        
+        <div class="card-body">
+            <h5 class="card-title"><%= el.title %></h5>
+            <p class="card-text"><%= el.description %></p>
+            <p class="card-text"><strong><%= formatRupiah(el.price) %></strong></p>
+            <a href="<%= el.url %>" target="_blank" class="btn btn-primary">Tonton di YouTube</a>
+    
+    
+        </div>
+    </div>
+    </div>
+    <% }) %>
+    </div>
+    </div>
+    <%- include('_bootstrap') %>
+</body>
+</html>

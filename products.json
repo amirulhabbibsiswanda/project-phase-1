@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "title": "JavaScript for Beginners",
+      "description": "Learn JavaScript from scratch with hands-on examples.",
+      "price": 150000,
+      "url": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+      "CategoryId": 1
+    },
+    {
+      "id": 2,
+      "title": "Basic Algebra",
+      "description": "Understand the foundation of algebra and equations.",
+      "price": 120000,
+      "url": "https://www.youtube.com/watch?v=l3XzepN03KQ",
+      "CategoryId": 2
+    },
+    {
+      "id": 3,
+      "title": "Fundamental Physics",
+      "description": "Learn classical mechanics and basic laws of physics.",
+      "price": 130000,
+      "url": "https://www.youtube.com/watch?v=GcG3uZRi9nU",
+      "CategoryId": 3
+    },
+    {
+      "id": 4,
+      "title": "Indonesian Cuisine 101",
+      "description": "Cook authentic Indonesian dishes step-by-step.",
+      "price": 100000,
+      "url": "https://www.youtube.com/watch?v=5bDNZspUHzs",
+      "CategoryId": 4
+    },
+    {
+      "id": 5,
+      "title": "Intro to Adobe Illustrator",
+      "description": "Start designing with Illustrator from the basics.",
+      "price": 140000,
+      "url": "https://www.youtube.com/watch?v=Ib8UBwu3yGA",
+      "CategoryId": 5
+    },
+    {
+      "id": 6,
+      "title": "Basic Japanese Language",
+      "description": "Learn daily Japanese conversation and writing.",
+      "price": 110000,
+      "url": "https://www.youtube.com/watch?v=1jNwE3me5Ew",
+      "CategoryId": 6
+    },
+    {
+      "id": 7,
+      "title": "Personal Finance Management",
+      "description": "Manage your income, expenses, and budgeting wisely.",
+      "price": 125000,
+      "url": "https://www.youtube.com/watch?v=G1M0aXvPp1k",
+      "CategoryId": 7
+    },
+    {
+      "id": 8,
+      "title": "Guitar for Beginners",
+      "description": "Play your first chords and simple songs with guitar.",
+      "price": 115000,
+      "url": "https://www.youtube.com/watch?v=2q6Jx1bZs3A",
+      "CategoryId": 8
+    }
+  ]
+  
