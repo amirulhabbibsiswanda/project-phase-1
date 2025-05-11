@@ -11,18 +11,29 @@
             padding: 0;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
             background: #f4f6f8;
         }
 
+        p {
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+            max-width: 550px;
+        }
+
         form {
             background: white;
-            padding: 40px 30px;
+            padding: 30px 20px;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
+            margin-bottom: 20px;
+            width: 300px;
         }
 
         input[type="submit"] {
@@ -39,12 +50,26 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+
+        form:last-of-type input[type="submit"] {
+            background-color: #f44336;
+        }
+
+        form:last-of-type input[type="submit"]:hover {
+            background-color: #d32f2f;
+        }
     </style>
 </head>
 
 <body>
+    <p>By clicking the confirm button, your order will be placed in your cart</p>
+
     <form action="/users/paymentsuccess" method="get">
         <input type="submit" value="CONFIRM PAYMENT">
+    </form>
+
+    <form action="/users/cancelpayment" method="get">
+        <input type="submit" value="CANCEL">
     </form>
 </body>
 

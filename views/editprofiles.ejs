@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profiles</title>
 </head>
+
 <body>
-<%= JSON.stringify(id) %>
     <div>
         <form action="/profile/<%= id %>/add" method="post">
             <div class="mb-3">
@@ -24,14 +25,15 @@
             <div class="mb-3">
                 <label for="type" class="form-label">Gender</label>
                 <select class="form-control" id="type" name="gender">
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
                 </select>
-            <button type="submit" class="btn btn-primary">Edit Data</button>
+                <button type="submit" class="btn btn-primary">Edit Data</button>
 
         </form>
     </div>
 
     <%- include('_bootstrap') %>
 </body>
+
 </html>
