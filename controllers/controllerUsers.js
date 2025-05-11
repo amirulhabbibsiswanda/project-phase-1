@@ -139,13 +139,7 @@ class UserController {
     }
     static async addCart(req, res) {
         try {
-            const { id } = req.params
-            const { userId } = req.session
-            await UserProduct.create({
-                UserId: userId,
-                ProductId: id,
-
-            })
+            const { id } = req.params //product id
 
             res.render('checkout_redirect', { id })
             // res.redirect(`/users/checkout/${id}`)
@@ -161,6 +155,7 @@ class UserController {
             const { productId } = req.params
             const product = await Product.findByPk(productId)
             // console.log(req.session, "CARI");
+            req.session.productId = productId
 
 
             const session = await stripe.checkout.sessions.create({
@@ -177,11 +172,45 @@ class UserController {
                     quantity: 1
                 }],
                 mode: 'payment',
-                success_url: `http://localhost:3000/categories?message=pembayaran+berhasil`,
-                cancel_url: `http://localhost:3000/categories?message=pembayaran+dibatalkan`,
+                success_url: `http://localhost:3000/users/confirmation`,
+                cancel_url: `http://localhost:3000/users/cancelpayment`,
             })
 
             res.redirect(session.url)
+        } catch (error) {
+            res.send(error)
+        }
+    }
+
+    static async confirmation(req, res) {
+        try {
+
+            res.render("confirm_payment")
+
+        } catch (error) {
+            res.send(error)
+        }
+    }
+    static async paymentSuccess(req, res) {
+        try {
+            const { userId } = req.session
+            const { productId } = req.session
+            await UserProduct.create({
+                UserId: userId,
+                ProductId: productId,
+
+            })
+
+            res.redirect("/categories?message=pembayaran+berhasil")
+        } catch (error) {
+            res.send(error)
+        }
+    }
+
+    static async cancelPayment(req, res) {
+        try {
+            res.render("cancel_payment")
+
         } catch (error) {
             res.send(error)
         }

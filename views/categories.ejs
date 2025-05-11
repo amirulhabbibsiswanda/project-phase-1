@@ -7,14 +7,8 @@
   <title>Course List</title>
 
   <!-- Bootstrap & Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
     body {
@@ -62,54 +56,59 @@
 <body>
   <%- include('_navbar') %>
 
-  <% if (paymentMessage) { %>
-    <div class="alert alert-danger text-center mt-3">
-      <%= paymentMessage %>
-    </div>
-  <% } %>
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="container">
-      <h1><i class="bi bi-lightning-charge-fill text-warning me-2"></i> Explore Top Learning Categories</h1>
-      <p class="lead">Temukan kategori pembelajaran yang sesuai dengan minat dan kariermu.</p>
-    </div>
-  </section>
-
-  <!-- Categories -->
-  <div class="container mt-4">
-    <div class="row">
-      <% data.forEach(el => { %>
-        <div class="col-md-4 mb-4">
-          <div class="card h-100 shadow-sm border-0">
-            <img
-              src="<%= el.urlImage %>"
-              class="card-img-top"
-              alt="<%= el.name %>"
-            />
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center gap-2">
-                <i class="bi bi-journal-code text-primary"></i> <%= el.name %>
-              </h5>
-              <p class="text-muted">Total: <strong><%= el.Products.length %></strong> Course</p>
-
-              <a href="/categories/<%= el.id %>" class="btn btn-outline-primary btn-sm me-2">
-                <i class="bi bi-eye-fill"></i> See Detail
-              </a>
-
-              <% if (role === 'admin') { %>
-                <a href="/categories/<%= el.id %>/delete" class="btn btn-outline-danger btn-sm">
-                  <i class="bi bi-trash-fill"></i> Delete
-                </a>
-              <% } %>
-            </div>
-          </div>
+    <% if (paymentMessage) { %>
+      <% if (paymentMessage==="pembayaran berhasil" ) { %>
+        <div class="alert alert-success text-center mt-3">
+          <%= paymentMessage %>
         </div>
-      <% }) %>
-    </div>
-  </div>
+        <% } else { %>
+          <div class="alert alert-danger text-center mt-3">
+            <%= paymentMessage %>
+          </div>
+          <% } %>
+            <% } %>
 
-  <%- include('_bootstrap') %>
+              <!-- Hero Section -->
+              <section class="hero-section">
+                <div class="container">
+                  <h1><i class="bi bi-lightning-charge-fill text-warning me-2"></i> Explore Top Learning Categories</h1>
+                  <p class="lead">Temukan kategori pembelajaran yang sesuai dengan minat dan kariermu.</p>
+                </div>
+              </section>
+
+              <!-- Categories -->
+              <div class="container mt-4">
+                <div class="row">
+                  <% data.forEach(el=> { %>
+                    <div class="col-md-4 mb-4">
+                      <div class="card h-100 shadow-sm border-0">
+                        <img src="<%= el.urlImage %>" class="card-img-top" alt="<%= el.name %>" />
+                        <div class="card-body">
+                          <h5 class="card-title d-flex align-items-center gap-2">
+                            <i class="bi bi-journal-code text-primary"></i>
+                            <%= el.name %>
+                          </h5>
+                          <p class="text-muted">Total: <strong>
+                              <%= el.Products.length %>
+                            </strong> Course</p>
+
+                          <a href="/categories/<%= el.id %>" class="btn btn-outline-primary btn-sm me-2">
+                            <i class="bi bi-eye-fill"></i> See Detail
+                          </a>
+
+                          <% if (role==='admin' ) { %>
+                            <a href="/categories/<%= el.id %>/delete" class="btn btn-outline-danger btn-sm">
+                              <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                            <% } %>
+                        </div>
+                      </div>
+                    </div>
+                    <% }) %>
+                </div>
+              </div>
+
+              <%- include('_bootstrap') %>
 </body>
 
 </html>
